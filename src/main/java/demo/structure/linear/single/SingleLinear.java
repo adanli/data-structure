@@ -4,50 +4,24 @@ package demo.structure.linear.single;
  * 单链表
  */
 public class SingleLinear<E> {
-    /**
-     * 数据元素域
-     */
-    private E element;
+    private int length = 0;
+    private Node<E> element;
 
-    /**
-     * 指针域
-     */
-    private SingleLinear<E> next;
-
-    private SingleLinear() {
-        this.element = null;
-        this.next = null;
-    }
-
-    private SingleLinear(E element) {
-        this.element = element;
-        this.next = null;
-    }
-
-    public Boolean isEmpty() {
-        return this.next == null;
+    public SingleLinear(int length) {
+        assert length > 0;
+        this.length = length;
     }
 
     public void clear() {
-        next = this.next;
-        this.element = null;
-        this.next = null;
+        if(this.length == 0) return;
+        Node<E> next = element.next;
+        element = null;
         while (next != null) {
-            next.clear();
+            element = next;
+            next = element.next;
+            element = null;
         }
-    }
 
-    public E get(int index) {
-        assert index >= 0;
-        if(index == 0) return this.element;
-        int i = 1;
-        while (i < index) {
-            next = this.next;
-            assert next != null;
-
-            i++;
-        }
-        return this.element;
     }
 
 }
