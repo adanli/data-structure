@@ -9,6 +9,19 @@ public class SingleLinearTest {
         list.insert(1, "d"); // c d b a
         list.insert("e"); // c d b a e
         list.print();
+
+        list.delete(0);
+        list.print(); // d b a e
+
+        list.delete(2); // d b e
+        list.print();
+
+        System.out.println(list.length());
+
+        list.clear();
+        list.print();
+        System.out.println(list.length());
+
     }
 
 }
