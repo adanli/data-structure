@@ -36,7 +36,7 @@ public class StackList<E> {
     @SuppressWarnings("unchecked")
     public E cetTop() {
         assert this.length > 0;
-        if(top != 0) return (E)array[top];
+        if(top != -1) return (E)array[top];
         return null;
     }
 
