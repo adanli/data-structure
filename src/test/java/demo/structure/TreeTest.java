@@ -36,7 +36,46 @@ public class TreeTest {
     }
 
     @Test
-    public void pre() {
+    public void test() {
+        behind(rootNode);
+    }
+
+    /**
+     * 前序遍历
+     * @param node
+     */
+    public void pre(Node<String> node) {
+        System.out.print(node.getData());
+        if(node.getLeftNode() != null) pre(node.getLeftNode());
+        if(node.getRightNode() != null) pre(node.getRightNode());
+    }
+
+    /**
+     * 中序遍历
+     * @param node
+     */
+    public void mid(Node<String> node) {
+        if(node.getLeftNode() != null) mid(node.getLeftNode());
+        System.out.print(node.getData());
+        if(node.getRightNode() != null) mid(node.getRightNode());
+    }
+
+    /**
+     * 后序遍历
+     * @param node
+     */
+    public void behind(Node<String> node) {
+        if(node.getLeftNode() != null) behind(node.getLeftNode());
+        if(node.getRightNode() != null) behind(node.getRightNode());
+        System.out.print(node.getData());
+    }
+
+    /**
+     * 层序遍历
+     * @param node
+     */
+    public void level(Node<String> node) {
 
     }
+
 }
