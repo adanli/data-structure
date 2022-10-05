@@ -30,7 +30,6 @@ public class TreeSelectTest {
         Node<String> N_G = getNode("G");
         Node<String> N_H = getNode("H");
         Node<String> N_I = getNode("I");
-        Node<String> N_J = getNode("J");
 
         N_A.setLChild(N_B);
         N_A.setRChild(N_C);
