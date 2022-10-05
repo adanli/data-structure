@@ -6,6 +6,9 @@ import lombok.ToString;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 二叉树遍历
  */
@@ -88,6 +91,25 @@ public class TreeSelectTest {
         behindView(node.getLChild());
         behindView(node.getRChild());
         handle(node);
+    }
+
+    /**
+     * 层序遍历
+     */
+    @Test
+    public void layerView() {
+        List<Node<String>> list = new ArrayList<>();
+        list.add(tree.getRoot());
+        layerView(list);
+    }
+
+    public <T> void layerView(List<Node<T>> list) {
+        while (!list.isEmpty()) {
+            Node<T> node = list.remove(0);
+            handle(node);
+            if(node.getLChild() != null) list.add(node.getLChild());
+            if(node.getRChild() != null) list.add(node.getRChild());
+        }
     }
 
     private <T> void handle(Node<T> node) {
