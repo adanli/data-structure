@@ -13,4 +13,8 @@ public class Tree<T> {
         this.node = root;
     }
 
+    public Node<T> getRoot() {
+        return node;
+    }
+
 }
