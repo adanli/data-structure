@@ -1,4 +1,4 @@
-package demo.structure.parent;
+package demo.structure.tree.parent;
 
 import demo.structure.tree.parent.Node;
 import demo.structure.tree.parent.Tree;

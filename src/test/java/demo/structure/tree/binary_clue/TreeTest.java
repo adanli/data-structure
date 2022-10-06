@@ -1,4 +1,4 @@
-package demo.structure.binary_clue;
+package demo.structure.tree.binary_clue;
 
 import demo.structure.tree.binary_clue.Node;
 import demo.structure.tree.binary_clue.Tag;

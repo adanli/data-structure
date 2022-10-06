@@ -1,4 +1,4 @@
-package demo.structure.binary;
+package demo.structure.tree.binary;
 
 import demo.structure.tree.binary.Node;
 import demo.structure.tree.binary.Tree;
