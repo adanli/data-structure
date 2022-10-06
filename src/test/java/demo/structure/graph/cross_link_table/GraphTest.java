@@ -40,9 +40,16 @@ public class GraphTest {
         for(InputEdge edge: edges) {
             Integer from = map.get(edge.getFrom());
             Integer to = map.get(edge.getTo());
-            // 入度
-
+            graph.getVertices()[from].attachTail(from, to);
         }
+
+        for(InputEdge edge: edges) {
+            Integer from = map.get(edge.getFrom());
+            Integer to = map.get(edge.getTo());
+            graph.attachHeader(to, from);
+        }
+
+        System.out.println(graph);
 
     }
 

@@ -17,4 +17,17 @@ public class CrossLinkTableGraph {
         this.vertices = new Vertex[vertexSize];
     }
 
+
+    public void attachHeader(Integer from, Integer to) {
+        Vertex v = vertices[from];
+
+        Vertex dist = vertices[to];
+        EdgeNode n = dist.getFirstOut();
+        while (n!=null && (n.getTailVex()!=to || n.getHeadVex()!=from)) {
+            n = n.getTailLink();
+        }
+        v.attachHeader(n);
+    }
+
+
 }

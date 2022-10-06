@@ -22,11 +22,23 @@ public class Vertex<T> {
         this.data = data;
     }
 
-    /**
-     * 添加入度的顶点
-     */
-    public void attachIn(Integer index) {
+    public void attachTail(Integer from, Integer to) {
+        EdgeNode n = new EdgeNode();
+        n.setTailVex(from);
+        n.setHeadVex(to);
+        if(this.firstOut == null) this.firstOut = n;
+        else {
+            n.setTailLink(this.firstOut);
+            this.firstOut = n;
+        }
+    }
 
+    public void attachHeader(EdgeNode node) {
+        if(this.firstIn == null) this.firstIn = node;
+        else {
+            node.setHeadLink(this.firstIn);
+            this.firstIn = node;
+        }
     }
 
 }
