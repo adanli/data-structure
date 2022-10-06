@@ -18,16 +18,20 @@ public class Vertex<T> {
     }
 
     public void attachNode(int index) {
-        if(firstNode == null) {
-            firstNode = new EdgeNode(index);
-        } else if(firstNode.getNext() == null) {
-            firstNode.setNext(new EdgeNode(index));
-        } else {
-            EdgeNode n = firstNode.getNext();
-            while (n.getNext() != null) {
-                n = n.getNext();
-            }
-            n.setNext(new EdgeNode(index));
+        if(firstNode == null) this.firstNode = new EdgeNode(index);
+        else {
+            EdgeNode n = new EdgeNode(index);
+            n.setNext(firstNode);
+            this.firstNode = n;
+        }
+    }
+
+    public void attachNode(EdgeNode node) {
+        if(node == null) return;
+        if(this.firstNode == null) this.firstNode = node;
+        else {
+            node.setNext(firstNode);
+            this.firstNode = node;
         }
     }
 
