@@ -2,7 +2,9 @@ package demo.structure.graph.adjacency_table;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 邻接表
@@ -42,6 +44,36 @@ public class AdjacencyTableGraph<T> {
 
     private void handle(Vertex<T> vertex) {
         System.out.println(vertex.getData());
+    }
+
+    /**
+     * 广度优先遍历
+     */
+    public void breadthTraversal() {
+        visited = new Boolean[vertices.length];
+        Arrays.fill(visited, false);
+        List<Vertex<T>> queue = new ArrayList<>();
+        for(int i=0; i<vertices.length; i++) {
+            if(visited[i]) continue;
+            queue.add(vertices[i]);
+            visited[i] = true;
+
+            while (!queue.isEmpty()) {
+                Vertex<T> vertex = queue.remove(0);
+                handle(vertex);
+
+                EdgeNode node = vertex.getFirstNode();
+                while (node != null) {
+                    if(!visited[node.getData()]) {
+                        queue.add(vertices[node.getData()]);
+                        visited[node.getData()] = true;
+                    }
+                    node = node.getNext();
+                }
+
+            }
+
+        }
     }
 
 }

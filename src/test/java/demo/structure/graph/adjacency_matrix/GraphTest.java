@@ -66,9 +66,15 @@ public class GraphTest {
     }
 
     @Test
-    public void print() {
+    public void deepTraversal() {
         createAdjacencyMatrix();
         graph.deepTraversal();
+    }
+
+    @Test
+    public void breadthTraversal() {
+        createAdjacencyMatrix();
+        graph.breadthTraversal();
     }
 
 }

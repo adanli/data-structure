@@ -138,4 +138,10 @@ public class GraphTest {
         graph.deepTraversal();
     }
 
+    @Test
+    public void breadthTraversal() {
+        createAdjacencyTableGraph();
+        graph.breadthTraversal();
+    }
+
 }

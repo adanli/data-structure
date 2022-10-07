@@ -2,7 +2,9 @@ package demo.structure.graph.adjacency_matrix;
 
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * 图 - 邻接矩阵 - 无向图
@@ -60,6 +62,38 @@ public class AdjacencyMatrixGraph {
 
     public void handle(String vertex) {
         System.out.println(vertex);
+    }
+
+
+    /**
+     * 广度优先
+     */
+    public void breadthTraversal() {
+        visited = new Boolean[vertexes.length];
+        Arrays.fill(visited, false);
+        List<String> queue = new ArrayList<>();
+        if(vertexes.length == 0) return;
+
+        for(int i=0; i<vertexes.length; i++) {
+            if(visited[i]) continue;
+
+            queue.add(vertexes[i]);
+            visited[i] = true;
+
+            while (!queue.isEmpty()) {
+                String element = queue.remove(0);
+                handle(element);
+
+                for(int j=0; j<edges[i].length; j++) {
+                    if(edges[i][j]==1 && !visited[j]) {
+                        queue.add(vertexes[j]);
+                        visited[j] = true;
+                    }
+                }
+
+            }
+
+        }
     }
 
 }
