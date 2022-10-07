@@ -38,11 +38,18 @@ public class GraphTest {
             map.put(points[i], i);
         }
 
-        for(int i=0; i<edges.length; i++) {
-            graph.getEdges()[i] = new EdgeNode(map.get(edges[i].getFrom()), map.get(edges[i].getTo()));
-        }
+        for(InputEdge edge: edges) {
+            Integer from =  map.get(edge.getFrom());
+            Integer to = map.get(edge.getTo());
 
-        graph.connect();
+            EdgeNode edgeNode = new EdgeNode(from, to);
+            Vertex<String> vI = graph.getVertices()[from];
+            vI.attachIEdge(edgeNode);
+
+            Vertex<String> vJ = graph.getVertices()[to];
+            vJ.attachJEdge(edgeNode);
+
+        }
 
         System.out.println(graph);
 

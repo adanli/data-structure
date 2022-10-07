@@ -11,4 +11,21 @@ public class Vertex<T> {
         this.data = data;
     }
 
+    public void attachIEdge(EdgeNode node) {
+        if(this.firstEdge == null) {
+            this.firstEdge = node;
+        } else {
+            node.setILink(firstEdge);
+            this.firstEdge = node;
+        }
+    }
+
+    public void attachJEdge(EdgeNode node) {
+        if(this.firstEdge == null) this.firstEdge = node;
+        else {
+            node.setJLink(firstEdge);
+            this.firstEdge = node;
+        }
+    }
+
 }
