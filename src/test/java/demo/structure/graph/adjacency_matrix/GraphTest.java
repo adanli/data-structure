@@ -10,6 +10,7 @@ import java.util.Map;
 public class GraphTest {
     final String[] vertexes = new String[]{"A", "B", "C", "D", "E"};
     final InputEdge[] edges = new InputEdge[6];
+    AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(vertexes.length, edges.length);
 
     @Before
     public void init() {
@@ -35,7 +36,6 @@ public class GraphTest {
             map.put(vertexes[i], i);
         }
 
-        AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(vertexes.length, edges.length);
         // 构建点
         System.arraycopy(vertexes, 0, graph.getVertexes(), 0, vertexes.length);
         // 构建边
@@ -63,6 +63,12 @@ public class GraphTest {
             this.from = from;
             this.to = to;
         }
+    }
+
+    @Test
+    public void print() {
+        createAdjacencyMatrix();
+        graph.deepTraversal();
     }
 
 }

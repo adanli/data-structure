@@ -10,6 +10,7 @@ import java.util.Map;
 public class GraphTest {
     private final String[] points = new String[]{"v0", "v1", "v2", "v3"};
     InputEdge[] edges = new InputEdge[10];
+    AdjacencyTableGraph<String> graph = new AdjacencyTableGraph<>(points.length, edges.length);
 
     @Before
     public void init() {
@@ -43,7 +44,6 @@ public class GraphTest {
      */
     @Test
     public void createAdjacencyTableGraph() {
-        AdjacencyTableGraph<String> graph = new AdjacencyTableGraph<>(points.length, edges.length);
         for(int i=0; i<points.length; i++) {
             Vertex<String> vertex = new Vertex<>(points[i]);
             graph.getVertices()[i] = vertex;
@@ -130,6 +130,12 @@ public class GraphTest {
             this(from, to);
             this.weight = weight;
         }
+    }
+
+    @Test
+    public void deepTraversal() {
+        createAdjacencyTableGraph();
+        graph.deepTraversal();
     }
 
 }
